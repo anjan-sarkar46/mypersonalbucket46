@@ -3,18 +3,18 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm ci
+        - "npm ci"
     build:
       commands:
         # Check if dist/ exists, if not, create it and run build
-        - if [ ! -d dist ]; then echo "dist/ not found, creating..."; mkdir dist; fi
-        - npm run build
+        - "if [ ! -d dist ]; then echo 'dist/ not found, creating...'; mkdir dist; fi"
+        - "npm run build"
         # Ensure dist/ is created and files are in place
-        - if [ ! -d dist ]; then echo "Error: dist/ directory not found even after creating!"; exit 1; fi
+        - "if [ ! -d dist ]; then echo 'Error: dist/ directory not found even after creating!'; exit 1; fi"
   artifacts:
     baseDirectory: dist
     files:
       - '**/*'
   cache:
     paths:
-      - node_modules/.cache/**/*
+      - "node_modules/.cache/**/*"
