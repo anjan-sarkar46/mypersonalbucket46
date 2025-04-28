@@ -3,8 +3,8 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm ci
-        - npm audit fix --force
+        - rm -rf package-lock.json node_modules
+        - npm install
     build:
       commands:
         - npm run build
